@@ -5,6 +5,12 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    console.log('[App.js constructor');
+  }
+
   state = {
     persons: [
       { id: 'asfa1', name: 'Max', age: 28 },
@@ -59,7 +65,9 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
-        <Cockpit showPersons={this.state.showPersons} 
+        <Cockpit 
+          title={this.props.appTitle}
+          showPersons={this.state.showPersons} 
           persons={this.state.persons}
           clicked={this.togglePersonsHandler} />
         {persons}
